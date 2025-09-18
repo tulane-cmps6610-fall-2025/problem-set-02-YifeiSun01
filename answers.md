@@ -316,6 +316,10 @@ Here because the leaf node total cost is neglegible compared to the extra work, 
 | $W(n-1) + \Theta(\log n)$ | $\Theta(n \log n)$ | $\Theta(n \log n)$ |
 | $W(n/3) + W(2n/3) + \Theta(n^{1.1})$ | $\Theta(n^{1.1})$ | $\Theta(n^{1.1})$ |
 
+
+I will choose the second one, because we have $\Theta(n^2)$, $\Theta(n \log n)$, $\Theta(n^{1.1})$, if divide by $n$, it is $\Theta(n^1)$, $\Theta(\log n)$, $\Theta(n^{0.1})$. $logn$ is quicker than polynomial.
+
+
 3. **More Algorithm Selection** 
 
 
