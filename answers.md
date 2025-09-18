@@ -90,6 +90,27 @@ From this explicit expression one sees
 
 Thus in that case $T(n) = \Theta\big(n^{\log_b a} \log n\big)$.
 
+## Span recurrence: closed-form via geometric series
+
+Assume a fork-join algorithm whose span satisfies the standard form
+$$S(n) = S(n/b) + f(n)$$
+and let the recursion stop when $n/b^k \approx 1$, i.e., $k \approx \log_b n$. Unrolling gives
+$$S(n) = S(n/b^k) + \sum_{i=0}^{k-1} f\!\left(\frac{n}{b^i}\right).$$
+For asymptotic purposes $S(n/b^k)$ is constant, so the dominant term is
+$$S(n) = \sum_{i=0}^{k-1} f\!\left(\frac{n}{b^i}\right).$$
+
+Now suppose $f(n) = n^d$ with $d>0$. Then
+$$S(n) = \sum_{i=0}^{k-1} \left(\frac{n}{b^i}\right)^d = n^d \sum_{i=0}^{k-1} \left(\frac{1}{b^d}\right)^i.$$
+With $k = \lfloor \log_b n \rfloor$ this is a finite geometric series:
+$$S(n) = n^d \cdot \frac{1 - \left(1/b^d\right)^k}{1 - 1/b^d} = n^d \cdot \frac{1 - 1/b^{dk}}{1 - 1/b^d}.$$
+Since $b^{k} \approx n$, we have $b^{dk} \approx n^d$, therefore
+$$S(n) = n^d \cdot \frac{1 - 1/n^d}{1 - 1/b^d} = \frac{n^d - 1}{1 - 1/b^d}.$$
+
+Hence the closed form for the span is
+$$S(n) = \frac{n^d - 1}{1 - 1/b^d} = \Theta(n^d)\quad\text{for}\ d>0.$$
+
+
+
 ---
 
 1) $$T(n) = 2T(n/6) + 1$$
