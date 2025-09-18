@@ -86,7 +86,7 @@ From this explicit expression one sees
          = n^{\log_b a} + \sum_{i=0}^{\lfloor \log_b n \rfloor -1} n^{\log_b a}
          = ( \log_b n + 1) n^{\log_b a}.$$
 
-Thus in that case $T(n) = \Theta\big(n^{\log_b a} \; \log n\big)$.
+Thus in that case $T(n) = \Theta\big(n^{\log_b a} \log n\big)$.
 
 ---
 
