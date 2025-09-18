@@ -253,7 +253,7 @@ Leaf cost: there are $O(n)$ leaves each of cost $\Theta(1)$ so leaf total cost $
 
 Conclusion: $T(n)=\Theta(n^{1.1})$
 
-
+Here because the leaf node total cost is neglegible compared to the extra work, the span is the same as the work which is $T(n)=\Theta(n^{1.1})$. The total work of all nodes on the same level are the same. Because $n/3+2n/3=n$, and this equal relationship continues to the last level which is the leaf node. But the extra work on each level is $n^1.1$ and this extra work shrinks by $(1/3)^1.1+(2/3)^1.1<1$ every layer so the sum is bounded by an upper bound which is $n^1.1$
 
 
 
