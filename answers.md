@@ -27,7 +27,7 @@ $$T(n) = a \ T(n/b) + f(n), \quad a \ge 1,\; b \ge 1.$$
 
 By iterating the recurrence $k$ times we get
 
-$$T(n) = a^k \ T\!\left(\frac{n}{b^k}\right) + \sum_{i=0}^{k-1} a^i \, f\!\left(\frac{n}{b^i}\right).$$
+$$T(n) = a^k \ T\left(\frac{n}{b^k}\right) + \sum_{i=0}^{k-1} a^i f\left(\frac{n}{b^i}\right).$$
 
 When we recurse until subproblem size is about constant, i.e. $n / b^k \approx 1$, this means $k \approx \log_b n$. Thus
 
