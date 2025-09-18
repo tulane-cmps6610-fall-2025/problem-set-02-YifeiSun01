@@ -8,6 +8,8 @@ Place all written answers from `assignment-01.md` here for easier grading.
 
 1. **Asymptotic notation**
 
+We prove that
+$$ \log(n!) \in \Theta(n \log n). $$
 
 Asymptotic notation. We have: $\log(n!) = \sum_{k=1}^{n} \log k.$  
 
