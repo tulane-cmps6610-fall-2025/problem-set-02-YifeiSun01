@@ -326,27 +326,27 @@ I will choose the second one, because we have $\Theta(n^2)$, $\Theta(n \log n)$,
 
 ## Analysis of Algorithm A: Work / Span Proof
 
-Algorithm A: divide a problem of size \(n\) into 5 subproblems each of size \(n/2\), solve recursively, then combine in linear time.
+Algorithm A: divide a problem of size $n$ into 5 subproblems each of size $n/2$, solve recursively, then combine in linear time.
 
 ---
 
 ### Work Proof
 
-Let work be \(W(n)\). Combine step takes \(\Theta(n)\). Then
+Let work be $W(n)$. Combine step takes $\Theta(n)$. Then
 
 $$W(n) = 5 W\left(\frac{n}{2}\right) + \Theta(n)$$
 
-By Master Theorem let \(a = 5\), \(b = 2\), \(f(n) = \Theta(n)\). Compute \(\log_b a = \log_2 5 \approx 2.3219\). Since \(f(n) = \Theta(n) = O\big(n^c\big)\) with \(c = 1 < \log_2 5\), this is Case 1 of the theorem.
+By Master Theorem let $a = 5$, $b = 2$, $f(n) = \Theta(n)$. Compute $\log_b a = \log_2 5 \approx 2.3219$. Since $f(n) = \Theta(n) = O\big(n^c\big)$ with $c = 1 < \log_2 5$, this is Case 1 of the theorem.
 
 Then
 
 $$W(n) = \Theta\left(n^{\log_2 5}\right)$$
 
-Alternate recursion‐tree argument: recursion depth \(k \approx \log_2 n\). On level \(i\) there are \(5^i\) subproblems each of size \(n/2^i\). Work of combine at level \(i\) is
+Alternate recursion-tree argument: recursion depth $k \approx \log_2 n$. On level $i$ there are $5^i$ subproblems each of size $n/2^i$. Work of combine at level $i$ is
 
 $$5^i \cdot \Theta\left(\frac{n}{2^i}\right) = \Theta\left(n \cdot \left(\frac{5}{2}\right)^i\right)$$
 
-Summing over \(i = 0\) to \(\log_2 n\) yields \(\Theta\left(n^{\log_2 5}\right)\). Leaves contribute same order. So
+Summing over $i = 0$ to $\log_2 n$ yields $\Theta\left(n^{\log_2 5}\right)$. Leaves contribute same order. So
 
 $$\boxed{W(n) = \Theta\left(n^{\log_2 5}\right)}$$
 
@@ -354,11 +354,11 @@ $$\boxed{W(n) = \Theta\left(n^{\log_2 5}\right)}$$
 
 ### Span Proof
 
-Let span (critical path length) be \(S(n)\). Assume combine step is sequential and costs \(\Theta(n)\). Then
+Let span (critical path length) be $S(n)$. Assume combine step is sequential and costs $\Theta(n)$. Then
 
 $$S(n) = S\left(\frac{n}{2}\right) + \Theta(n)$$
 
-Unroll recursion until size is constant, depth \(k \approx \log_2 n\). Then
+Unroll recursion until size is constant, depth $k \approx \log_2 n$. Then
 
 $$S(n) = \Theta(n) + \Theta\left(\frac{n}{2}\right) + \Theta\left(\frac{n}{4}\right) + \cdots + \Theta(1)$$
 
@@ -366,7 +366,7 @@ That is
 
 $$S(n) = \Theta\left(\sum_{i=0}^{\log_2 n - 1} \frac{n}{2^i}\right)$$
 
-Geometric series with ratio \(1/2\) so sum is \(\Theta(n)\). Thus
+Geometric series with ratio $1/2$ so sum is $\Theta(n)$. Thus
 
 $$\boxed{S(n) = \Theta(n)}$$
 
@@ -375,6 +375,7 @@ $$\boxed{S(n) = \Theta(n)}$$
 ### Final Comparison
 
 $$W(n) = \Theta\left(n^{\log_2 5}\right),\quad S(n) = \Theta(n)$$
+
 
 
 
