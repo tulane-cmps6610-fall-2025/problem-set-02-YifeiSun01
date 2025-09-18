@@ -241,7 +241,7 @@ $$T(n) = S(\log_2 n) = \Theta\bigl(\log(\log n)\bigr)$$
 
 **Level 1.** Expanding both children once gives $T(n)=c\,n^{1.1}\bigl(1+(1/3)^{1.1}+(2/3)^{1.1}\bigr)+\bigl[T(n/9)+2T(2n/9)+T(4n/9)\bigr]$.
 
-**General level $t$.** A node at depth $t$ that takes the “$2/3$” branch exactly $k$ times has size $m=n\cdot 2^{k}/3^{t}$ and multiplicity $\binom{t}{k}$. Summing combine costs over all nodes at depth $t$ yields $\Sigma_t=\sum_{k=0}^{t}\binom{t}{k}\,c\,(n\cdot 2^{k}/3^{t})^{1.1}=c\,n^{1.1}\,3^{-1.1t}\sum_{k=0}^{t}\binom{t}{k}(2^{1.1})^{k}=c\,n^{1.1}\Bigl(\frac{1+2^{1.1}}{3^{1.1}}\Bigr)^{t}=c\,n^{1.1}\,\theta^{t}$, where $\theta=(1/3)^{1.1}+(2/3)^{1.1}<1$.
+**General level $t$.** A node at depth $t$ that takes the $2/3$ branch exactly $k$ times has size $m=n\cdot 2^{k}/3^{t}$ and multiplicity $\binom{t}{k}$. Summing combine costs over all nodes at depth $t$ yields $\Sigma_t=\sum_{k=0}^{t}\binom{t}{k}\,c\,(n\cdot 2^{k}/3^{t})^{1.1}=c\,n^{1.1}\,3^{-1.1t}\sum_{k=0}^{t}\binom{t}{k}(2^{1.1})^{k}=c\,n^{1.1}\Bigl(\frac{1+2^{1.1}}{3^{1.1}}\Bigr)^{t}=c\,n^{1.1}\,\theta^{t}$, where $\theta=(1/3)^{1.1}+(2/3)^{1.1}<1$.
 
 **Sum over all levels (internal work).** The tree height is $O(\log n)$, and extending the geometric sum to infinity only affects constants; hence $\sum_{t\ge 0}\Sigma_t=c\,n^{1.1}\sum_{t\ge 0}\theta^{t}=\frac{c}{1-\theta}\,n^{1.1}=\Theta(n^{1.1})$.
 
