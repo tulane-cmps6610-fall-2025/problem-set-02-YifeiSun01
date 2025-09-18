@@ -370,7 +370,7 @@ Here because the leaf node total cost is neglegible compared to the extra work, 
 
 | Recurrence | Work recurrence | Work Θ-result | Span recurrence | Span Θ-result |
 |---|---|---|---|---|
-| Recurrence 1: $W(n)=2\,W(n/5)+\Theta(n^2)$ | $W(n)=2 W(n/5)+\Theta(n^2)$ | $\Theta(n^2)$ | $S(n)=S(n/5)+\Theta(n^2)$ | $\Theta(n^2)$ |
+| Recurrence 1: $W(n)=2 W(n/5)+\Theta(n^2)$ | $W(n)=2 W(n/5)+\Theta(n^2)$ | $\Theta(n^2)$ | $S(n)=S(n/5)+\Theta(n^2)$ | $\Theta(n^2)$ |
 | Recurrence 2: $W(n)=W(n-1)+\Theta(\log n)$ | $W(n)=W(n-1)+\Theta(\log n)$ | $\Theta(n\log n)$ | $S(n)=S(n-1)+\Theta(\log n)$ | $\Theta(n\log n)$ |
 | Recurrence 3: $T(n)=T(n/3)+T(2n/3)+\Theta(n^{1.1})$ | $T(n)=T(n/3)+T(2n/3)+\Theta(n^{1.1})$ | $\Theta(n^{1.1})$ | $S(n)=\max(S(n/3),S(2n/3))+\Theta(n^{1.1})$ | $\Theta(n^{1.1})$ |
 
