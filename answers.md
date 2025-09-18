@@ -366,13 +366,14 @@ Here because the leaf node total cost is neglegible compared to the extra work, 
 
 ---
 
-## Summary
+## Summary table: Work and Span (three recurrences)
 
-| Recurrence | Work $W(n)$ | Span $S(n)$ |
-|------------|------------------|--------------------|
-| $2 W(n/5) + \Theta(n^2)$ | $\Theta(n^2)$ | $\Theta(n^2)$ |
-| $W(n-1) + \Theta(\log n)$ | $\Theta(n \log n)$ | $\Theta(n \log n)$ |
-| $W(n/3) + W(2n/3) + \Theta(n^{1.1})$ | $\Theta(n^{1.1})$ | $\Theta(n^{1.1})$ |
+| Recurrence | Work recurrence | Work Θ-result | Span recurrence | Span Θ-result |
+|---|---|---|---|---|
+| Recurrence 1: $W(n)=2\,W(n/5)+\Theta(n^2)$ | $W(n)=2 W(n/5)+\Theta(n^2)$ | $\Theta(n^2)$ | $S(n)=S(n/5)+\Theta(n^2)$ | $\Theta(n^2)$ |
+| Recurrence 2: $W(n)=W(n-1)+\Theta(\log n)$ | $W(n)=W(n-1)+\Theta(\log n)$ | $\Theta(n\log n)$ | $S(n)=S(n-1)+\Theta(\log n)$ | $\Theta(n\log n)$ |
+| Recurrence 3: $T(n)=T(n/3)+T(2n/3)+\Theta(n^{1.1})$ | $T(n)=T(n/3)+T(2n/3)+\Theta(n^{1.1})$ | $\Theta(n^{1.1})$ | $S(n)=\max(S(n/3),S(2n/3))+\Theta(n^{1.1})$ | $\Theta(n^{1.1})$ |
+
 
 
 I will choose the second one, because we have $\Theta(n^2)$, $\Theta(n \log n)$, $\Theta(n^{1.1})$, if divide by $n$, it is $\Theta(n^1)$, $\Theta(\log n)$, $\Theta(n^{0.1})$. $logn$ is quicker than polynomial.
@@ -490,7 +491,7 @@ $$W(n)=\Theta \big(n^2\log n\big),\quad S(n)=\Theta \big(n^2\big).$$
 
 | Algorithm | Work recurrence | Work Θ-result | Span recurrence | Span Θ-result |
 |---|---|---|---|---|
-| A (5 subproblems of size n/2, linear combine) | $W(n)=5 W(n/2)+\Theta(n)$ | $\Theta\!\big(n^{\log_2 5}\big)$ | $S(n)=S(n/2)+\Theta(n)$ | $\Theta(n)$ |
+| A (5 subproblems of size n/2, linear combine) | $W(n)=5 W(n/2)+\Theta(n)$ | $\Theta\big(n^{\log_2 5}\big)$ | $S(n)=S(n/2)+\Theta(n)$ | $\Theta(n)$ |
 | B (two subproblems of size n−1, constant combine) | $W(n)=2 W(n-1)+\Theta(1)$ | $\Theta(2^n)$ | $S(n)=S(n-1)+\Theta(1)$ | $\Theta(n)$ |
 | C (9 subproblems of size n/3, $O(n^2)$ combine) | $W(n)=9 W(n/3)+\Theta(n^2)$ | $\Theta(n^2\log n)$ | $S(n)=S(n/3)+\Theta(n^2)$ | $\Theta(n^2)$ |
 
