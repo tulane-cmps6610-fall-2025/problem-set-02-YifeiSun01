@@ -109,6 +109,41 @@ $$S(n) = n^d \cdot \frac{1 - 1/n^d}{1 - 1/b^d} = \frac{n^d - 1}{1 - 1/b^d}.$$
 Hence the closed form for the span is
 $$S(n) = \frac{n^d - 1}{1 - 1/b^d} = \Theta(n^d)\quad\text{for}\ d>0.$$
 
+## Edge cases for span recurrence with $f(n)=n^d$
+
+Assume $S(n)=S(n/b)+f(n)$, recursion stops when $n/b^k\approx1$ so $k\approx\log_b n$.
+
+---
+
+### Case $d=0$
+
+Then $f(n)=\Theta(1)$.
+
+Unroll gives
+
+$$S(n)=\sum_{i=0}^{k-1} \Theta(1)=\Theta(k)=\Theta(\log_b n)$$
+
+---
+
+### Case $d<0$
+
+Then $f(n)=n^d$ decays as $n$ grows.
+
+Unroll gives
+
+$$S(n)=\sum_{i=0}^{k-1} \left(\frac{n}{b^i}\right)^d = n^d \sum_{i=0}^{k-1} \left(\frac{1}{b^d}\right)^i$$
+
+Since $1/b^d<1$ when $d<0$, geometric series converges as $k\to\infty$ to a constant:
+
+$$S(n)=\Theta\left(n^d \cdot \frac{1}{1-1/b^d}\right)=\Theta(1)$$
+
+---
+
+### Summary
+
+- If $d>0$, then $S(n)=\Theta(n^d)$  
+- If $d=0$, then $S(n)=\Theta(\log_b n)$  
+- If $d<0$, then $S(n)=\Theta(1)$
 
 
 ---
