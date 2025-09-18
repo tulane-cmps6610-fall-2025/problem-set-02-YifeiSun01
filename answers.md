@@ -506,8 +506,7 @@ $$W(n)=\Theta \big(n^2\log n\big),\quad S(n)=\Theta \big(n^2\big).$$
 | B (two subproblems of size n−1, constant combine) | $W(n)=2 W(n-1)+\Theta(1)$ | $\Theta(2^n)$ | $S(n)=S(n-1)+\Theta(1)$ | $\Theta(n)$ |
 | C (9 subproblems of size n/3, $O(n^2)$ combine) | $W(n)=9 W(n/3)+\Theta(n^2)$ | $\Theta(n^2\log n)$ | $S(n)=S(n/3)+\Theta(n^2)$ | $\Theta(n^2)$ |
 
-**Assumptions:** subproblems at the same level run fully in parallel; combine costs shown are sequential within each level.
-
+I will choose A. Though A has larger work than C, but the span is smaller. It can be parallized in faster time.
 
  
 4. **Integer Multiplication Timing Results**
