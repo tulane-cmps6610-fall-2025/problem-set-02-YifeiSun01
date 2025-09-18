@@ -39,16 +39,16 @@ $$a^{\log_b n} = n^{\log_b a},$$
 
 we can write
 
-$$ T(n)=c n^{\log_b a}+\sum_{i=0}^{\lfloor\log_b n\rfloor-1} a^i f \left(\frac{n}{b^i}\right) (\star) $$
+$$ T(n)=c  n^{\log_b a}+\sum_{i=0}^{\lfloor\log_b n\rfloor-1} a^i f \left(\frac{n}{b^i}\right) (\star) $$
 
-Here $c\,n^{\log_b a}$ is the total work at the leaves (the base‐cases), and the sum is all the “extra work” from the non‐recursive parts at each level from the root down to just above the leaves.
+Here $c  n^{\log_b a}$ is the total work at the leaves (the base‐cases), and the sum is all the “extra work” from the non‐recursive parts at each level from the root down to just above the leaves.
 
 Let $m = \log_b a$, and compare $n^m$ with $f(n)$.
 
-- Leaf contribution: $\;n^{\log_b a} = \Theta(n^m)$.
+- Leaf contribution: $ n^{\log_b a} = \Theta(n^m)$.
 - Internal levels sum:
 
-  $$S(n) = \sum_{i=0}^{L-1} a^i f\!\left(\frac{n}{b^i}\right), \quad L \approx \log_b n.$$
+  $$S(n) = \sum_{i=0}^{L-1} a^i f \left(\frac{n}{b^i}\right), \quad L \approx \log_b n.$$
 
 Suppose $f(n)$ is a polynomial, i.e. $f(n) = \Theta(n^d)$ for some $d$.
 
