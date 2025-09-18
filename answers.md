@@ -231,7 +231,56 @@ $$T(n) = S(\log_2 n) = \Theta\bigl(\log(\log n)\bigr)$$
 
 2. **Algorithm Selection**
 
+## Recurrence 1:  
+$$W(n) = 2 W(n/5) + \Theta(n^2)$$
 
+**Use the Master Theorem**
+
+- Let  
+  $a = 2,\; b = 5,\; f(n) = \Theta(n^2)$  
+- Compute  
+  $$n^{\log_b a} = n^{\log_5 2} \approx n^{0.43}$$  
+- Compare $f(n)$ with $n^{\log_b a}$:  
+  $f(n) = n^2$ is polynomially larger than $n^{0.43}$, i.e.  
+  $f(n) = \Omega(n^{\log_5 2 + \varepsilon})$ for some $\varepsilon > 0$.  
+
+- Check regularity condition (smoothness):  
+  $$a f(n/b) = 2 \cdot \Theta((n/5)^2) = \Theta(n^2/25) = \Theta(n^2) \cdot \frac{2}{25} < c \cdot \Theta(n^2)$$  
+  for some constant $c < 1$. So condition holds.
+
+- By **Case 3** of Master Theorem:
+
+  $$W(n) = \Theta(f(n)) = \Theta(n^2)$$
+
+- Span with full parallelism:  
+  $$S(n) = S(n/5) + \Theta(n^2) \implies S(n) = \Theta(n^2)$$
+
+---
+
+## Recurrence 2:  
+$$W(n) = W(n-1) + \Theta(\log n)$$
+
+**Use summation + Stirling’s approximation**
+
+- Unroll the recurrence:
+
+  $$W(n) = W(1) + \sum_{k=2}^n \Theta(\log k) = \Theta\left(\sum_{k=1}^n \log k\right)$$
+
+- Recognize:
+
+  $$\sum_{k=1}^n \log k = \log(n!)$$
+
+- By Stirling’s approximation:
+
+  $$\log(n!) = n \log n - n + O(\log n) = \Theta(n \log n)$$
+
+- Thus:
+
+  $$W(n) = \Theta(n \log n)$$
+
+- Since only one recursive branch (no parallelism), span $S(n)$ has the same order:
+
+  $$S(n) = \Theta(n \log n)$$
 
 Proof of $T(n)=T(n/3)+T(2n/3)+\Theta(n^{1.1})$ via recursion tree including leaf cost
 
@@ -255,8 +304,15 @@ Conclusion: $T(n)=\Theta(n^{1.1})$
 
 Here because the leaf node total cost is neglegible compared to the extra work, the span is the same as the work which is $T(n)=\Theta(n^{1.1})$. The total work of all nodes on the same level are the same. Because $n/3+2n/3=n$, and this equal relationship continues to the last level which is the leaf node. But the extra work on each level is $n^{1.1}$ and this extra work shrinks by $(1/3)^{1.1}+(2/3)^{1.1}<1$ every layer so the sum is bounded by an upper bound which is $n^{1.1}$
 
+---
 
+## Summary
 
+| Recurrence | Work $W(n)$ | Span $S(n)$ |
+|------------|------------------|--------------------|
+| $2 W(n/5) + \Theta(n^2)$ | $\Theta(n^2)$ | $\Theta(n^2)$ |
+| $W(n-1) + \Theta(\log n)$ | $\Theta(n \log n)$ | $\Theta(n \log n)$ |
+| $W(n/3) + W(2n/3) + \Theta(n^{1.1})$ | $\Theta(n^{1.1})$ | $\Theta(n^{1.1})$ |
 
 3. **More Algorithm Selection** 
 
