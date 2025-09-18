@@ -39,7 +39,7 @@ $$a^{\log_b n} = n^{\log_b a},$$
 
 we can write
 
-$$T(n) = c\, n^{\log_b a} + \sum_{i=0}^{\lfloor \log_b n \rfloor -1} a^i \, f\!\left(\frac{n}{b^i}\right).\tag{$\star$}$$
+$$ T(n)=c\,n^{\log_b a}+\sum_{i=0}^{\lfloor\log_b n\rfloor-1} a^i\,f\!\left(\frac{n}{b^i}\right)\;\;(\star) $$
 
 Here $c\,n^{\log_b a}$ is the total work at the leaves (the base‐cases), and the sum is all the “extra work” from the non‐recursive parts at each level from the root down to just above the leaves.
 
