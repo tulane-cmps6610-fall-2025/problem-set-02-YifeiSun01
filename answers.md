@@ -23,7 +23,7 @@ proof of master theorem
 
 We consider the recurrence
 
-$$T(n) = a \ T(n/b) + f(n), \quad a \ge 1,\; b \ge 1.$$
+$$T(n) = a \ T(n/b) + f(n), \quad a \ge 1, b \ge 1.$$
 
 By iterating the recurrence $k$ times we get
 
