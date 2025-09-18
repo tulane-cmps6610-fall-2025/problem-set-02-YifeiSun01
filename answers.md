@@ -194,11 +194,11 @@ $$T(n) = \Theta(n^{c+1})$$
 
 Faulhaber’s formula (with Bernoulli numbers \(B_r\)) gives
 
-$$\sum_{k=1}^n k^c = \frac{1}{c+1} \sum_{r=0}^c \binom{c+1}{r} B_r\,n^{\,c+1-r}$$
+$$\sum_{k=1}^n k^c = \frac{1}{c+1} \sum_{r=0}^c \binom{c+1}{r} B_r n^{ c+1-r}$$
 
 Therefore the sum is a \((c+1)\)-degree polynomial in \(n\); the first few terms are
 
-$$\sum_{k=1}^n k^c = \frac{n^{c+1}}{c+1} + \frac12\,n^c + (\text{lower-order terms})$$
+$$\sum_{k=1}^n k^c = \frac{n^{c+1}}{c+1} + \frac12 n^c + (\text{lower-order terms})$$
 
 
 
