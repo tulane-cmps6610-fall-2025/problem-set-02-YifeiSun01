@@ -17,7 +17,7 @@ Asymptotic notation. We have: $\log(n!) = \sum_{k=1}^{n} \log k.$
 
 Combining upper and lower bounds yields: $\log(n!) \in \Theta(n \log n).$
 
-
+---
 
 proof of master theorem
 
