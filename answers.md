@@ -132,9 +132,7 @@ Thus in that case $T(n) = \Theta\big(n^{\log_b a} \log n\big)$.
 
     $$f(n)=n^{3/2}\log n$$ with $$d=1.5>m$$.
 
-    Regularity: $$a f(n/b) = 49 (n/25)^{3/2} (\log n - \log 25)$$
-
-    $$\le (49/125)\, n^{3/2}\log n$$ for large $$n$$.
+    Regularity: $$a f(n/b) = 49 (n/25)^{3/2} (\log n - \log 25) \le (49/125)\, n^{3/2}\log n$$ for large $$n$$.
 
     $$T(n) = \Theta\big(n^{3/2}\log n\big).$$
 
