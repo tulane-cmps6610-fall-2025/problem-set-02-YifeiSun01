@@ -136,7 +136,43 @@ Thus in that case $T(n) = \Theta\big(n^{\log_b a} \log n\big)$.
 
     $$T(n) = \Theta\big(n^{3/2}\log n\big).$$
 
+7) $$T(n) = T(n - 1) + 2$$
 
+We solve the recurrence
+
+$$T(n) = T(n - 1) + 2$$
+
+Assume the base case is
+
+$$T(1) = C$$
+
+where \(C\) is a constant, for all \(n \ge 2\).
+
+Then
+
+$$T(n) = T(n - 1) + 2$$
+
+$$= (T(n - 2) + 2) + 2$$
+
+$$= T(n - 2) + 2 \cdot 2$$
+
+$$= (T(n - 3) + 2) + 2 \cdot 2$$
+
+$$= T(n - 3) + 3 \cdot 2$$
+
+$$\vdots$$
+
+$$= T(1) + (n - 1) \cdot 2$$
+
+$$= C + 2(n - 1)$$
+
+Therefore
+
+$$T(n) = 2n - 2 + C$$
+
+Using asymptotic notation, since \(C\) is constant:
+
+$$T(n) = \Theta(n)$$
 
 
 
