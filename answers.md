@@ -233,25 +233,26 @@ $$T(n) = S(\log_2 n) = \Theta\bigl(\log(\log n)\bigr)$$
 
 
 
-**Proof of** $T(n)=T(n/3)+T(2n/3)+\Theta(n^{1.1})$ **via recursion tree with leaf cost**
+Proof of $T(n)=T(n/3)+T(2n/3)+\Theta(n^{1.1})$ via recursion tree including leaf cost
 
-Setup: assume combine cost is $\Theta(m^{1.1})$, base case $T(1)=\Theta(1)$.
+Setup: assume combine cost is $\Theta(m^{1.1})$ base case $T(1)=\Theta(1)$
 
 Level 0:  
-$T(n)=c\,n^{1.1}+T(n/3)+T(2n/3)$
+$T(n)=c n^{1.1}+T(n/3)+T(2n/3)$
 
 Level 1:  
-$T(n)=c\,n^{1.1}\bigl(1+(1/3)^{1.1}+(2/3)^{1.1}\bigr)+[T(n/9)+2T(2n/9)+T(4n/9)]$
+$T(n)=c n^{1.1}(1+(1/3)^{1.1}+(2/3)^{1.1})+[T(n/9)+2T(2n/9)+T(4n/9)]$
 
-General level $t$: the cost of level $t$ is  
-$\Sigma_{t}=\sum_{k=0}^{t}\binom{t}{k}\,c\,(n\cdot2^{k}/3^{t})^{1.1}=c\,n^{1.1}\,3^{-1.1t}\sum_{k=0}^{t}\binom{t}{k}(2^{1.1})^{k}=c\,n^{1.1}\bigl((1+2^{1.1})/3^{1.1}\bigr)^{t}=c\,n^{1.1}\,\theta^{t}, \quad \theta=(1/3)^{1.1}+(2/3)^{1.1}<1$
+General level t: the cost of level t is  
+$\Sigma_{t}=\sum_{k=0}^{t}\binom{t}{k}c (n\cdot2^{k}/3^{t})^{1.1}=c n^{1.1}3^{-1.1t}\sum_{k=0}^{t}\binom{t}{k}(2^{1.1})^{k}=c n^{1.1}((1+2^{1.1})/3^{1.1})^{t}=c n^{1.1} \theta^{t}$ where $\theta=(1/3)^{1.1}+(2/3)^{1.1}<1$
 
-Internal cost (non-leaf):  
-$\sum_{t=0}^{\infty}\Sigma_{t}=c\,n^{1.1}\sum_{t=0}^{\infty}\theta^{t}=\frac{c}{1-\theta}n^{1.1}=\Theta(n^{1.1})$
+Internal cost non-leaf levels:  
+$\sum_{t=0}^{\infty}\Sigma_{t}=c n^{1.1}\sum_{t=0}^{\infty}\theta^{t}=\frac{c}{1-\theta}n^{1.1}=\Theta(n^{1.1})$
 
-Leaf cost: there are $O(n)$ leaves, each leaf cost $\Theta(1)$, so leaf total cost $O(n)=o(n^{1.1})$
+Leaf cost: there are $O(n)$ leaves each of cost $\Theta(1)$ so leaf total cost $O(n)=o(n^{1.1})$
 
-Conclusion: total $T(n)=\Theta(n^{1.1})$.
+Conclusion: $T(n)=\Theta(n^{1.1})$
+
 
 
 
