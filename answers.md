@@ -150,9 +150,9 @@ $$S(n)=\Theta\left(n^d \cdot \frac{1}{1-1/b^d}\right)=\Theta(1)$$
 
 | Model | Case | Input form | Conditions | Asymptotic result |
 |---|---|---|---|---|
-| Work | Case 1 | $T(n)=a\,T(n/b)+f(n)$ | $a\ge 1$, $b>1$, let $m=\log_b a$. If $f(n)=O(n^{\,m-\varepsilon})$ for some $\varepsilon>0$ | $T(n)=\Theta(n^{\,m})$ |
-| Work | Case 2 | $T(n)=a\,T(n/b)+f(n)$ | $a\ge 1$, $b>1$, $f(n)=\Theta(n^{\,m}\log^{k} n)$ with $k\ge 0$ | $T(n)=\Theta(n^{\,m}\log^{k+1} n)$ |
-| Work | Case 3 | $T(n)=a\,T(n/b)+f(n)$ | $a\ge 1$, $b>1$, $f(n)=\Omega(n^{\,m+\varepsilon})$ for some $\varepsilon>0$ and regularity $a\,f(n/b)\le c\,f(n)$ for some $c<1$ and large $n$ | $T(n)=\Theta(f(n))$ |
+| Work | Case 1 | $T(n)=aT(n/b)+f(n)$ | $a\ge 1$, $b>1$, let $m=\log_b a$. If $f(n)=O(n^{m-\varepsilon})$ for some $\varepsilon>0$ | $T(n)=\Theta(n^{m})$ |
+| Work | Case 2 | $T(n)=aT(n/b)+f(n)$ | $a\ge 1$, $b>1$, $f(n)=\Theta(n^{m}\log^{k} n)$ with $k\ge 0$ | $T(n)=\Theta(n^{m}\log^{k+1} n)$ |
+| Work | Case 3 | $T(n)=aT(n/b)+f(n)$ | $a\ge 1$, $b>1$, $f(n)=\Omega(n^{m+\varepsilon})$ for some $\varepsilon>0$ and regularity $af(n/b)\le cf(n)$ for some $c<1$ and large $n$ | $T(n)=\Theta(f(n))$ |
 | Span | $d>0$ | $S(n)=S(n/b)+n^{d}$ | Fork–join, full parallelism among equal subproblems, $b>1$, base constant | $S(n)=\Theta(n^{d})$ |
 | Span | $d=0$ | $S(n)=S(n/b)+\Theta(1)$ | Same as above | $S(n)=\Theta(\log_b n)$ |
 | Span | $d<0$ | $S(n)=S(n/b)+n^{d}$ | Same as above, $d<0$ so per-level cost decreases geometrically | $S(n)=\Theta(1)$ |
