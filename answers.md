@@ -94,32 +94,32 @@ Thus in that case $T(n) = \Theta\big(n^{\log_b a} \log n\big)$.
 
 1) T(n) = 2T(n/6) + 1
    a=2, b=6, m=log_6 2, f(n)=1 = Θ(n^0) with 0 < m.
-   $$ T(n) = \Theta\!\big(n^{\log_6 2}\big). $$
+   $$T(n) = \Theta\!\big(n^{\log_6 2}\big).$$
 
-2) T(n) = 6T(n/4) + n
+2) $$T(n) = 6T(n/4) + n$$
    a=6, b=4, m=log_4 6, f(n)=n = Θ(n^1) with 1 < m.
-   $$ T(n) = \Theta\!\big(n^{\log_4 6}\big). $$
+   $$T(n) = \Theta\!\big(n^{\log_4 6}\big).$$
 
-3) T(n) = 7T(n/7) + n
+3) $$T(n) = 7T(n/7) + n$$
    a=7, b=7, m=\log_7 7=1, f(n)=n with d=m (tie case).
-   $$ T(n) = \Theta(n\log n). $$
+   $$T(n) = \Theta(n\log n).$$
 
-4) T(n) = 9T(n/4) + n^2
+4) $$T(n) = 9T(n/4) + n^2$$
    a=9, b=4, m=\log_4 9 \approx 1.585, f(n)=n^2 with d=2>m.
    Regularity: a f(n/b) = 9 (n/4)^2 = (9/16) n^2 \le c n^2,\ c<1.
-   $$ T(n) = \Theta(n^2). $$
+   $$T(n) = \Theta(n^2).$$
 
-5) T(n) = 4T(n/2) + n^3
+5) $$T(n) = 4T(n/2) + n^3$$
    a=4, b=2, m=\log_2 4=2, f(n)=n^3 with d=3>m.
    Regularity: a f(n/b) = 4 (n/2)^3 = \tfrac12 n^3 \le c n^3,\ c<1.
-   $$ T(n) = \Theta(n^3). $$
+   $$T(n) = \Theta(n^3).$$
 
-6) T(n) = 49T(n/25) + n^{3/2}\log n
+6) $$T(n) = 49T(n/25) + n^{3/2}\log n$$
    a=49, b=25, m=\log_{25} 49 = \frac{\ln 7}{\ln 5} \approx 1.209,
    f(n)=n^{3/2}\log n with d=1.5>m.
    Regularity: a f(n/b) = 49 (n/25)^{3/2} (\log n - \log 25)
    \le (49/125)\, n^{3/2}\log n for large n.
-   $$ T(n) = \Theta\!\big(n^{3/2}\log n\big). $$
+   $$T(n) = \Theta\!\big(n^{3/2}\log n\big).$$
 
 
 
