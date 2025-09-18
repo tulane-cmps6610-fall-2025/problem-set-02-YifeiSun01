@@ -174,13 +174,13 @@ Using asymptotic notation, since \(C\) is constant:
 
 $$T(n) = \Theta(n)$$
 
-8) $$T(n) = T(n-1) + n^c c \gt 1$$
+8) $$T(n) = T(n-1) + n^c,  c \gt 1$$
 
 Suppose we have the recurrence
 
 $$T(n) = T(n-1) + n^c$$
 
-with some constant \(c \ge 1\). Assume base case \(T(0) = C\) (or \(T(1)=C\), differs by constant). Then
+with some constant $\(c \gt 1\)$. Assume base case $\(T(0) = C\)$ (or $\(T(1)=C\)$, differs by constant). Then
 
 $$T(n) = C + \sum_{k=1}^n k^c$$
 
