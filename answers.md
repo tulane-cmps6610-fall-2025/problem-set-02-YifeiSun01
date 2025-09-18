@@ -45,7 +45,7 @@ Here $c  n^{\log_b a}$ is the total work at the leaves (the base‐cases), and t
 
 Let $m = \log_b a$, and compare $n^m$ with $f(n)$.
 
-- Leaf contribution: $ n^{\log_b a} = \Theta(n^m)$.
+- Leaf contribution: $ n^{log_b a} = \Theta(n^m)$.
 - Internal levels sum:
 
   $$S(n) = \sum_{i=0}^{L-1} a^i f \left(\frac{n}{b^i}\right), \quad L \approx \log_b n.$$
