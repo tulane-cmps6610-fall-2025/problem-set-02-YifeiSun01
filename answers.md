@@ -380,7 +380,7 @@ I will choose the second one, because we have $\Theta(n^2)$, $\Theta(n \log n)$,
 
 3. **More Algorithm Selection** 
 
-## Analysis of Algorithm A: Work / Span Proof
+## Algorithm A: Work / Span Proof
 
 Algorithm A: divide a problem of size $n$ into 5 subproblems each of size $n/2$, solve recursively, then combine in linear time.
 
@@ -432,6 +432,26 @@ $$\boxed{S(n) = \Theta(n)}$$
 
 $$W(n) = \Theta\left(n^{\log_2 5}\right),\quad S(n) = \Theta(n)$$
 
+## Algorithm B: Work and Span
+
+**Setup.** The algorithm solves two subproblems of size $n-1$ and combines in constant time.
+
+### Work
+Recurrence:
+$$W(n)=2\,W(n-1)+\Theta(1).$$
+Unroll:
+$$W(n)=2^k W(n-k)+\Theta\!\left(\sum_{i=0}^{k-1}2^i\right).$$
+Set $k=n$ (base case at constant size), then $\sum_{i=0}^{n-1}2^i=\Theta(2^n)$, hence
+$$W(n)=\Theta(2^n).$$
+
+### Span
+With both subproblems executed in parallel, span takes the longest branch plus constant combine time:
+$$S(n)=S(n-1)+\Theta(1).$$
+Unroll to the base case through $n$ levels:
+$$S(n)=\Theta\!\left(\sum_{i=0}^{n-1}1\right)=\Theta(n).$$
+
+### Conclusion
+$$W(n)=\Theta(2^n),\quad S(n)=\Theta(n).$$
 
 
 ## Algorithm C: Work and Span Proof
