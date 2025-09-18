@@ -434,6 +434,39 @@ $$W(n) = \Theta\left(n^{\log_2 5}\right),\quad S(n) = \Theta(n)$$
 
 
 
+## Algorithm C: Work and Span Proof
+
+**Setup.** The algorithm divides a size $n$ problem into $a=9$ subproblems of size $n/b=n/3$, solves them recursively, and combines in $f(n)=\Theta(n^2)$ time.
+
+---
+
+### Work
+
+The work satisfies
+$$W(n)=9\,W(n/3)+\Theta(n^2).$$
+
+Compute $\log_b a=\log_3 9=2$, so $f(n)=\Theta\!\big(n^{\log_b a}\big)$. By the Master Theorem (case 2),
+$$W(n)=\Theta\!\big(n^{\log_b a}\log n\big)=\Theta\!\big(n^2\log n\big).$$
+
+---
+
+### Span
+
+All 9 subproblems run in parallel, so the span satisfies
+$$S(n)=S(n/3)+\Theta(n^2).$$
+
+Unrolling to depth $k\approx\log_3 n$,
+$$S(n)=\Theta(n^2)\sum_{i=0}^{k-1}\left(\frac{1}{3^2}\right)^i
+=\Theta(n^2)\cdot\frac{1-(1/9)^k}{1-1/9}
+=\Theta(n^2).$$
+
+---
+
+### Conclusion
+
+$$W(n)=\Theta\!\big(n^2\log n\big),\quad S(n)=\Theta\!\big(n^2\big).$$
+
+
 
  
 4. **Integer Multiplication Timing Results**
