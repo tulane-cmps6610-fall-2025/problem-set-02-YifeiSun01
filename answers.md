@@ -174,6 +174,31 @@ Using asymptotic notation, since \(C\) is constant:
 
 $$T(n) = \Theta(n)$$
 
+8) $$T(n) = T(n-1) + n^c c \gt 1$$
+
+Suppose we have the recurrence
+
+$$T(n) = T(n-1) + n^c$$
+
+with some constant \(c \ge 1\). Assume base case \(T(0) = C\) (or \(T(1)=C\), differs by constant). Then
+
+$$T(n) = C + \sum_{k=1}^n k^c$$
+
+This is the sum of the first \(n\) integers each raised to the \(c\)-th power. For integer \(c\), there is a closed-form given by Faulhaber’s Formula: it is a polynomial in \(n\) of degree \(c+1\). The leading term is
+
+$$\sum_{k=1}^n k^c = \frac{n^{c+1}}{c+1} + \frac12\,n^c + O(n^{c-1})$$
+
+Hence
+
+$$T(n) = \Theta(n^{c+1})$$
+
+Faulhaber’s formula (with Bernoulli numbers \(B_r\)) gives
+
+$$\sum_{k=1}^n k^c = \frac{1}{c+1} \sum_{r=0}^c \binom{c+1}{r} B_r\,n^{\,c+1-r}$$
+
+Therefore the sum is a \((c+1)\)-degree polynomial in \(n\); the first few terms are
+
+$$\sum_{k=1}^n k^c = \frac{n^{c+1}}{c+1} + \frac12\,n^c + (\text{lower-order terms})$$
 
 
 
