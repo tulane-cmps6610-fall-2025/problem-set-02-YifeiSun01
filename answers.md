@@ -282,6 +282,8 @@ $$W(n) = W(n-1) + \Theta(\log n)$$
 
   $$S(n) = \Theta(n \log n)$$
 
+  We also proved this in the first question.
+
 Proof of $T(n)=T(n/3)+T(2n/3)+\Theta(n^{1.1})$ via recursion tree including leaf cost
 
 Setup: assume combine cost is $\Theta(m^{1.1})$ base case $T(1)=\Theta(1)$
