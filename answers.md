@@ -58,7 +58,7 @@ $$\text{cost}_i = a^i \left(\frac{n}{b^i}\right)^d = n^d \left(\frac{a}{b^d}\rig
 
 Thus
 
-$$S(n) = n^d \sum_{i=0}^{\lfloor \log_b n \rfloor -1} r^i, \quad r = \frac{a}{b^d}, \; r \neq 1.$$
+$$S(n) = n^d \sum_{i=0}^{\lfloor \log_b n \rfloor -1} r^i, \quad r = \frac{a}{b^d}, r \neq 1.$$
 
 Using the geometric series sum,
 
@@ -73,8 +73,8 @@ $$S(n) = n^d \cdot \frac{r^{\lfloor \log_b n \rfloor} -1}{r-1}
 Putting that into $(\star)$, we get
 
 $$T(n) = n^{\log_b a} + \frac{n^{\log_b a} - n^d}{(a / b^d) - 1}
-       = \frac{a / b^d}{(a / b^d) - 1}\;n^{\log_b a}
-         - \frac{1}{(a / b^d) - 1}\;n^d.$$
+       = \frac{a / b^d}{(a / b^d) - 1} n^{\log_b a}
+         - \frac{1}{(a / b^d) - 1} n^d.$$
 
 From this explicit expression one sees
 
@@ -84,7 +84,7 @@ From this explicit expression one sees
 
   $$T(n) = n^{\log_b a} + \sum_{i=0}^{\lfloor \log_b n \rfloor -1} a^i \left(\frac{n}{b^i}\right)^{\log_b a}
          = n^{\log_b a} + \sum_{i=0}^{\lfloor \log_b n \rfloor -1} n^{\log_b a}
-         = ( \log_b n + 1)\;n^{\log_b a}.$$
+         = ( \log_b n + 1) n^{\log_b a}.$$
 
 Thus in that case $T(n) = \Theta\big(n^{\log_b a} \; \log n\big)$.
 
