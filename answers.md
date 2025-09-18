@@ -233,21 +233,26 @@ $$T(n) = S(\log_2 n) = \Theta\bigl(\log(\log n)\bigr)$$
 
 
 
-### Proof (recursion tree with explicit leaf cost) for $T(n)=T(n/3)+T(2n/3)+\Theta(n^{1.1})$
+**Proof of** $T(n)=T(n/3)+T(2n/3)+\Theta(n^{1.1})$ **via recursion tree with leaf cost**
 
-**Setup.** Assume the non-recursive combine cost for a subproblem of size $m$ is bounded as $c_1 m^{1.1} \le \text{combine}(m) \le c_2 m^{1.1}$ for constants $c_1,c_2>0$, and let $T(1)=\Theta(1)$. For algebra, write the combine term as $c\,m^{1.1}$.
+Setup: assume combine cost is $\Theta(m^{1.1})$, base case $T(1)=\Theta(1)$.
 
-**Level 0.** $T(n)=c\,n^{1.1}+T(n/3)+T(2n/3)$.
+Level 0:  
+$T(n)=c\,n^{1.1}+T(n/3)+T(2n/3)$
 
-**Level 1.** Expanding both children once gives $T(n)=c\,n^{1.1}\bigl(1+(1/3)^{1.1}+(2/3)^{1.1}\bigr)+\bigl[T(n/9)+2T(2n/9)+T(4n/9)\bigr]$.
+Level 1:  
+$T(n)=c\,n^{1.1}\bigl(1+(1/3)^{1.1}+(2/3)^{1.1}\bigr)+[T(n/9)+2T(2n/9)+T(4n/9)]$
 
-**General level $t$.** A node at depth $t$ that takes the $2/3$ branch exactly $k$ times has size $m=n\cdot 2^{k}/3^{t}$ and multiplicity $\binom{t}{k}$. Summing combine costs over all nodes at depth $t$ yields $\Sigma_t=\sum_{k=0}^{t}\binom{t}{k}\,c\,(n\cdot 2^{k}/3^{t})^{1.1}=c\,n^{1.1}\,3^{-1.1t}\sum_{k=0}^{t}\binom{t}{k}(2^{1.1})^{k}=c\,n^{1.1}\Bigl(\frac{1+2^{1.1}}{3^{1.1}}\Bigr)^{t}=c\,n^{1.1}\,\theta^{t}$, where $\theta=(1/3)^{1.1}+(2/3)^{1.1}<1$.
+General level $t$: the cost of level $t$ is  
+$\Sigma_{t}=\sum_{k=0}^{t}\binom{t}{k}\,c\,(n\cdot2^{k}/3^{t})^{1.1}=c\,n^{1.1}\,3^{-1.1t}\sum_{k=0}^{t}\binom{t}{k}(2^{1.1})^{k}=c\,n^{1.1}\bigl((1+2^{1.1})/3^{1.1}\bigr)^{t}=c\,n^{1.1}\,\theta^{t}, \quad \theta=(1/3)^{1.1}+(2/3)^{1.1}<1$
 
-**Sum over all levels (internal work).** The tree height is $O(\log n)$, and extending the geometric sum to infinity only affects constants; hence $\sum_{t\ge 0}\Sigma_t=c\,n^{1.1}\sum_{t\ge 0}\theta^{t}=\frac{c}{1-\theta}\,n^{1.1}=\Theta(n^{1.1})$.
+Internal cost (non-leaf):  
+$\sum_{t=0}^{\infty}\Sigma_{t}=c\,n^{1.1}\sum_{t=0}^{\infty}\theta^{t}=\frac{c}{1-\theta}n^{1.1}=\Theta(n^{1.1})$
 
-**Leaf cost.** Each leaf contributes $\Theta(1)$. The total subproblem size at any fixed depth is at most $n$ (mass conservation under the split $m\mapsto m/3+2m/3$), so the number of leaves is $\le n$; therefore the total leaf cost is $O(n)=o(n^{1.1})$.
+Leaf cost: there are $O(n)$ leaves, each leaf cost $\Theta(1)$, so leaf total cost $O(n)=o(n^{1.1})$
 
-**Conclusion.** Total work equals internal (combine) cost plus leaf cost, i.e., $T(n)=\Theta(n^{1.1})+\!O(n)=\Theta(n^{1.1})$. (As a cross-check, Akra–Bazzi with $(1/3)^p+(2/3)^p=1$ gives $p=1$, and since $g(n)=n^{1.1}=n^{p+0.1}$, the solution is $\Theta(n^{1.1})$.)
+Conclusion: total $T(n)=\Theta(n^{1.1})$.
+
 
 
 
