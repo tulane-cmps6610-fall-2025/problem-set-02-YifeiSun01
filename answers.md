@@ -167,7 +167,7 @@ $$S(n)=\Theta\left(n^d \cdot \frac{1}{1-1/b^d}\right)=\Theta(1)$$
 
    $$S(n) = \Theta(\log n)$$
 
-3) $$T(n) = 6T(n/4) + n$$
+2) $$T(n) = 6T(n/4) + n$$
 
    $$a=6, b=4, m=log_4 6, f(n)=n = Θ(n^1)$$ with $$1 < m$$.
 
@@ -175,7 +175,7 @@ $$S(n)=\Theta\left(n^d \cdot \frac{1}{1-1/b^d}\right)=\Theta(1)$$
 
    $$S(n) = \Theta(n)$$
 
-5) $$T(n) = 7T(n/7) + n$$
+3) $$T(n) = 7T(n/7) + n$$
 
    $$a=7, b=7, m=\log_7 7=1, f(n)=n$$ with $$d=m$$ (tie case).
 
@@ -183,7 +183,7 @@ $$S(n)=\Theta\left(n^d \cdot \frac{1}{1-1/b^d}\right)=\Theta(1)$$
 
    $$S(n) = \Theta(n)$$
 
-7) $$T(n) = 9T(n/4) + n^2$$
+4) $$T(n) = 9T(n/4) + n^2$$
 
    $$a=9, b=4, m=\log_4 9 \approx 1.585$$, $$f(n)=n^2$$ with $$d=2>m$$.
 
@@ -193,7 +193,7 @@ $$S(n)=\Theta\left(n^d \cdot \frac{1}{1-1/b^d}\right)=\Theta(1)$$
 
    $$S(n) = \Theta(n^2)$$
 
-9) $$T(n) = 4T(n/2) + n^3$$
+5) $$T(n) = 4T(n/2) + n^3$$
 
    $$a=4, b=2, m=\log_2 4=2$$, $$f(n)=n^3$$ with $$d=3>m$$.
 
@@ -203,7 +203,7 @@ $$S(n)=\Theta\left(n^d \cdot \frac{1}{1-1/b^d}\right)=\Theta(1)$$
 
    $$S(n) = \Theta(n^3)$$
 
-11) $$T(n) = 49T(n/25) + n^{3/2}\log n$$
+6) $$T(n) = 49T(n/25) + n^{3/2}\log n$$
  
    $$a=49, b=25, m=\log_{25} 49 = \frac{\ln 7}{\ln 5} \approx 1.209$$,
 
@@ -215,7 +215,7 @@ $$S(n)=\Theta\left(n^d \cdot \frac{1}{1-1/b^d}\right)=\Theta(1)$$
 
     $$S(n) = \Theta\big(n^{3/2}\log n\big).$$
 
-11) $$T(n) = T(n - 1) + 2$$
+7) $$T(n) = T(n - 1) + 2$$
 
 We solve the recurrence
 
