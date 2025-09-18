@@ -146,17 +146,16 @@ $$S(n)=\Theta\left(n^d \cdot \frac{1}{1-1/b^d}\right)=\Theta(1)$$
 - If $d<0$, then $S(n)=\Theta(1)$
 
 
-## Summary table: Master Theorem (work) and span (fork–join) — three cases each
+## Summary table: Master Theorem (work) and Span (fork–join)
 
-| Category | Input form | Conditions (assumptions) | Asymptotic result |
-|---|---|---|---|
-| Work — Case 1 | $T(n)=a\,T(n/b)+f(n)$ | $a\ge 1,\ b>1$; let $m=\log_b a$. If $f(n)=O\!\big(n^{\,m-\varepsilon}\big)$ for some $\varepsilon>0$ | $T(n)=\Theta\!\big(n^{\,m}\big)$ |
-| Work — Case 2 | $T(n)=a\,T(n/b)+f(n)$ | $a\ge 1,\ b>1$; $f(n)=\Theta\!\big(n^{\,m}\log^{k}\!n\big)$ with $k\ge 0$ | $T(n)=\Theta\!\big(n^{\,m}\log^{k+1}\!n\big)$ |
-| Work — Case 3 | $T(n)=a\,T(n/b)+f(n)$ | $a\ge 1,\ b>1$; if $f(n)=\Omega\!\big(n^{\,m+\varepsilon}\big)$ for some $\varepsilon>0$ **and** the regularity condition holds: $\exists c<1,\ n_0$ s.t. $a\,f(n/b)\le c\,f(n)$ for all $n\ge n_0$ | $T(n)=\Theta\!\big(f(n)\big)$ |
-| Span — $d>0$ | $S(n)=S(n/b)+f(n)$ | Fork–join with full parallelism across equal-sized subproblems; $b>1$; $f(n)=n^{d}$ with $d>0$; base case constant | $S(n)=\Theta\!\big(n^{\,d}\big)$ |
-| Span — $d=0$ | $S(n)=S(n/b)+f(n)$ | Same as above; $f(n)=\Theta(1)$ | $S(n)=\Theta\!\big(\log_b n\big)$ |
-| Span — $d<0$ | $S(n)=S(n/b)+f(n)$ | Same as above; $f(n)=n^{d}$ with $d<0$ (decreasing per level) | $S(n)=\Theta(1)$ |
-
+| Model | Case | Input form | Conditions | Asymptotic result |
+|---|---|---|---|---|
+| Work | Case 1 | $T(n)=a\,T(n/b)+f(n)$ | $a\ge 1$, $b>1$, let $m=\log_b a$. If $f(n)=O(n^{\,m-\varepsilon})$ for some $\varepsilon>0$ | $T(n)=\Theta(n^{\,m})$ |
+| Work | Case 2 | $T(n)=a\,T(n/b)+f(n)$ | $a\ge 1$, $b>1$, $f(n)=\Theta(n^{\,m}\log^{k} n)$ with $k\ge 0$ | $T(n)=\Theta(n^{\,m}\log^{k+1} n)$ |
+| Work | Case 3 | $T(n)=a\,T(n/b)+f(n)$ | $a\ge 1$, $b>1$, $f(n)=\Omega(n^{\,m+\varepsilon})$ for some $\varepsilon>0$ and regularity $a\,f(n/b)\le c\,f(n)$ for some $c<1$ and large $n$ | $T(n)=\Theta(f(n))$ |
+| Span | $d>0$ | $S(n)=S(n/b)+n^{d}$ | Fork–join, full parallelism among equal subproblems, $b>1$, base constant | $S(n)=\Theta(n^{d})$ |
+| Span | $d=0$ | $S(n)=S(n/b)+\Theta(1)$ | Same as above | $S(n)=\Theta(\log_b n)$ |
+| Span | $d<0$ | $S(n)=S(n/b)+n^{d}$ | Same as above, $d<0$ so per-level cost decreases geometrically | $S(n)=\Theta(1)$ |
 
 ---
 
