@@ -96,13 +96,13 @@ Thus in that case $T(n) = \Theta\big(n^{\log_b a} \log n\big)$.
 
    $$a=2, b=6, m=log_6 2$$, $$f(n)=1 = Θ(n^0)$$ with $$0 < m$$.
 
-   $$T(n) = \Theta\!\big(n^{\log_6 2}\big).$$
+   $$T(n) = \Theta\big(n^{\log_6 2}\big).$$
 
 2) $$T(n) = 6T(n/4) + n$$
 
    $$a=6, b=4, m=log_4 6, f(n)=n = Θ(n^1)$$ with $$1 < m$$.
 
-   $$T(n) = \Theta\!\big(n^{\log_4 6}\big).$$
+   $$T(n) = \Theta\big(n^{\log_4 6}\big).$$
 
 3) $$T(n) = 7T(n/7) + n$$
 
@@ -136,7 +136,7 @@ Thus in that case $T(n) = \Theta\big(n^{\log_b a} \log n\big)$.
 
     $$\le (49/125)\, n^{3/2}\log n$$ for large $$n$$.
 
-    $$T(n) = \Theta\!\big(n^{3/2}\log n\big).$$
+    $$T(n) = \Theta\big(n^{3/2}\log n\big).$$
 
 
 
