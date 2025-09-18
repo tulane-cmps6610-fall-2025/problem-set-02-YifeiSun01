@@ -95,9 +95,9 @@ Thus in that case $T(n) = \Theta\big(n^{\log_b a} \log n\big)$.
 Assume a fork-join algorithm whose span satisfies the standard form
 $$S(n) = S(n/b) + f(n)$$
 and let the recursion stop when $n/b^k \approx 1$, i.e., $k \approx \log_b n$. Unrolling gives
-$$S(n) = S(n/b^k) + \sum_{i=0}^{k-1} f\!\left(\frac{n}{b^i}\right).$$
+$$S(n) = S(n/b^k) + \sum_{i=0}^{k-1} f \left(\frac{n}{b^i}\right).$$
 For asymptotic purposes $S(n/b^k)$ is constant, so the dominant term is
-$$S(n) = \sum_{i=0}^{k-1} f\!\left(\frac{n}{b^i}\right).$$
+$$S(n) = \sum_{i=0}^{k-1} f \left(\frac{n}{b^i}\right).$$
 
 Now suppose $f(n) = n^d$ with $d>0$. Then
 $$S(n) = \sum_{i=0}^{k-1} \left(\frac{n}{b^i}\right)^d = n^d \sum_{i=0}^{k-1} \left(\frac{1}{b^d}\right)^i.$$
@@ -188,7 +188,7 @@ $$S(n)=\Theta\left(n^d \cdot \frac{1}{1-1/b^d}\right)=\Theta(1)$$
 
     $$f(n)=n^{3/2}\log n$$ with $$d=1.5>m$$.
 
-    Regularity: $$a f(n/b) = 49 (n/25)^{3/2} (\log n - \log 25) \le (49/125)\, n^{3/2}\log n$$ for large $$n$$.
+    Regularity: $$a f(n/b) = 49 (n/25)^{3/2} (\log n - \log 25) \le (49/125) n^{3/2}\log n$$ for large $$n$$.
 
     $$T(n) = \Theta\big(n^{3/2}\log n\big).$$
 
@@ -242,7 +242,7 @@ $$T(n) = C + \sum_{k=1}^n k^c$$
 
 This is the sum of the first \(n\) integers each raised to the \(c\)-th power. For integer \(c\), there is a closed-form given by Faulhaber’s Formula: it is a polynomial in \(n\) of degree \(c+1\). The leading term is
 
-$$\sum_{k=1}^n k^c = \frac{n^{c+1}}{c+1} + \frac12\,n^c + O(n^{c-1})$$
+$$\sum_{k=1}^n k^c = \frac{n^{c+1}}{c+1} + \frac12 n^c + O(n^{c-1})$$
 
 Hence
 
@@ -293,7 +293,7 @@ $$W(n) = 2 W(n/5) + \Theta(n^2)$$
 **Use the Master Theorem**
 
 - Let  
-  $a = 2,\; b = 5,\; f(n) = \Theta(n^2)$  
+  $a = 2, b = 5, f(n) = \Theta(n^2)$  
 - Compute  
   $$n^{\log_b a} = n^{\log_5 2} \approx n^{0.43}$$  
 - Compare $f(n)$ with $n^{\log_b a}$:  
@@ -438,9 +438,9 @@ $$W(n) = \Theta\left(n^{\log_2 5}\right),\quad S(n) = \Theta(n)$$
 
 ### Work
 Recurrence:
-$$W(n)=2\,W(n-1)+\Theta(1).$$
+$$W(n)=2 W(n-1)+\Theta(1).$$
 Unroll:
-$$W(n)=2^k W(n-k)+\Theta\!\left(\sum_{i=0}^{k-1}2^i\right).$$
+$$W(n)=2^k W(n-k)+\Theta \left(\sum_{i=0}^{k-1}2^i\right).$$
 Set $k=n$ (base case at constant size), then $\sum_{i=0}^{n-1}2^i=\Theta(2^n)$, hence
 $$W(n)=\Theta(2^n).$$
 
@@ -448,7 +448,7 @@ $$W(n)=\Theta(2^n).$$
 With both subproblems executed in parallel, span takes the longest branch plus constant combine time:
 $$S(n)=S(n-1)+\Theta(1).$$
 Unroll to the base case through $n$ levels:
-$$S(n)=\Theta\!\left(\sum_{i=0}^{n-1}1\right)=\Theta(n).$$
+$$S(n)=\Theta \left(\sum_{i=0}^{n-1}1\right)=\Theta(n).$$
 
 ### Conclusion
 $$W(n)=\Theta(2^n),\quad S(n)=\Theta(n).$$
@@ -463,10 +463,10 @@ $$W(n)=\Theta(2^n),\quad S(n)=\Theta(n).$$
 ### Work
 
 The work satisfies
-$$W(n)=9\,W(n/3)+\Theta(n^2).$$
+$$W(n)=9 W(n/3)+\Theta(n^2).$$
 
-Compute $\log_b a=\log_3 9=2$, so $f(n)=\Theta\!\big(n^{\log_b a}\big)$. By the Master Theorem (case 2),
-$$W(n)=\Theta\!\big(n^{\log_b a}\log n\big)=\Theta\!\big(n^2\log n\big).$$
+Compute $\log_b a=\log_3 9=2$, so $f(n)=\Theta \big(n^{\log_b a}\big)$. By the Master Theorem (case 2),
+$$W(n)=\Theta \big(n^{\log_b a}\log n\big)=\Theta \big(n^2\log n\big).$$
 
 ---
 
@@ -484,7 +484,7 @@ $$S(n)=\Theta(n^2)\sum_{i=0}^{k-1}\left(\frac{1}{3^2}\right)^i
 
 ### Conclusion
 
-$$W(n)=\Theta\!\big(n^2\log n\big),\quad S(n)=\Theta\!\big(n^2\big).$$
+$$W(n)=\Theta \big(n^2\log n\big),\quad S(n)=\Theta \big(n^2\big).$$
 
 
 
