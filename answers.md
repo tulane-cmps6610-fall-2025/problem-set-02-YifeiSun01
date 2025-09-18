@@ -200,6 +200,33 @@ Therefore the sum is a \((c+1)\)-degree polynomial in \(n\); the first few terms
 
 $$\sum_{k=1}^n k^c = \frac{n^{c+1}}{c+1} + \frac12 n^c + (\text{lower-order terms})$$
 
+9) $$T(n) = T(\sqrt{n}) + 1$$
+
+We consider the recurrence
+
+$$T(n) = T(\sqrt{n}) + 1$$
+
+Assume some base case \(T(n_0) = C\), where \(C\) is constant.
+
+Let \(n = 2^m\), and define
+
+$$S(m) = T(2^m)$$
+
+Then \(\sqrt{n} = 2^{m/2}\). Substituting,
+
+$$T(2^m) = T\bigl((2^m)^{1/2}\bigr) + 1 = T(2^{m/2}) + 1$$
+
+This gives
+
+$$S(m) = S\left(\frac{m}{2}\right) + 1$$
+
+The recurrence \(S(m) = S(m/2) + 1\) is a “halve every time + constant” type. Its solution is
+
+$$S(m) = \Theta(\log m)$$
+
+Since \(m = \log_2 n\), we have
+
+$$T(n) = S(\log_2 n) = \Theta\bigl(\log(\log n)\bigr)$$
 
 
 2. **Algorithm Selection**
