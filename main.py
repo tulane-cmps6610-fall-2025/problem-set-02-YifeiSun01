@@ -43,15 +43,43 @@ def pad(x,y):
         y = ['0'] + y
     return x,y
     
-def quadratic_multiply(x, y):
-    ### TODO
-    pass
-    ###
+    
+def add_bn(a: BinaryNumber, b: BinaryNumber) -> BinaryNumber:
+    return BinaryNumber(a.decimal_val + b.decimal_val)
 
-def subquadratic_multiply(x, y):
-    ### TODO
-    pass
-    ###
+def sub_bn(a: BinaryNumber, b: BinaryNumber) -> BinaryNumber:
+    return BinaryNumber(a.decimal_val - b.decimal_val)
+
+def quadratic_multiply(x: BinaryNumber, y: BinaryNumber) -> BinaryNumber:
+    if len(x.binary_vec) == 1 and len(y.binary_vec) == 1:
+        bit = '1' if (x.binary_vec[0] == '1' and y.binary_vec[0] == '1') else '0'
+        return binary2int([bit])
+    x_bits, y_bits = pad(x.binary_vec, y.binary_vec)
+    n = len(x_bits)
+    x1, x2 = split_number(x_bits)
+    y1, y2 = split_number(y_bits)
+    z2 = quadratic_multiply(x1, y1)
+    z0 = quadratic_multiply(x2, y2)
+    z1a = quadratic_multiply(x1, y2)
+    z1b = quadratic_multiply(x2, y1)
+    z1 = add_bn(z1a, z1b)
+    return add_bn(add_bn(bit_shift(z2, n), bit_shift(z1, n//2)), z0)
+
+def subquadratic_multiply(x: BinaryNumber, y: BinaryNumber) -> BinaryNumber:
+    if len(x.binary_vec) == 1 and len(y.binary_vec) == 1:
+        bit = '1' if (x.binary_vec[0] == '1' and y.binary_vec[0] == '1') else '0'
+        return binary2int([bit])
+    x_bits, y_bits = pad(x.binary_vec, y.binary_vec)
+    n = len(x_bits)
+    x1, x2 = split_number(x_bits)
+    y1, y2 = split_number(y_bits)
+    z2 = subquadratic_multiply(x1, y1)
+    z0 = subquadratic_multiply(x2, y2)
+    s1 = add_bn(x1, x2)
+    s2 = add_bn(y1, y2)
+    p = subquadratic_multiply(s1, s2)
+    z1 = sub_bn(sub_bn(p, z2), z0)
+    return add_bn(add_bn(bit_shift(z2, n), bit_shift(z1, n//2)), z0)
 
 ## Feel free to add your own tests here.
 def test_multiply():
