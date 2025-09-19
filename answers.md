@@ -529,3 +529,8 @@ I will choose A. Though A has larger work than C, but the span is smaller. It ca
 4. **Integer Multiplication Timing Results**
 
 5. **Black Hats and White Hats**
+
+
+
+6c)
+Imagine white is strictly more than black. We first randomly assign them into n/2 pairs of 2. As long as we get at least one answer from this pair of 2 that it is black, we know that there is at least one black in this pair of 2. It is either one black one white or 2 blacks. We can just put them aside into another pool. Then in the original pool, it is either -2 black -0 white or -1 black and -1 white. When we know that initially blacks are less than white, in the end, the remaining samples have to be white, because blacks decreasing faster than or at the same speed as white. After n/2 comparison, we can get at least one white. Then this white will always tell truth. Then we will ask him for all remaining n-1 people, so we can determine all of the n people. We need 1.5n-1 in total. So O(n).
