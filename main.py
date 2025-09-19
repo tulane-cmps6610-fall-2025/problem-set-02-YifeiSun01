@@ -3,6 +3,7 @@ CMPS 6610  Problem Set 2
 See problemset-02.pdf for details.
 """
 import time
+import tabulate
 
 class BinaryNumber:
     """ done """
@@ -11,7 +12,7 @@ class BinaryNumber:
         self.binary_vec = list('{0:b}'.format(n)) 
         
     def __repr__(self):
-        return('decimal=%d binary=%s' % (self.decimal_val, ''.join(self.binary_vec))
+        return('decimal=%d binary=%s' % (self.decimal_val, ''.join(self.binary_vec)))
     
 
 ## Implement multiplication functions here. Note that you will have to
@@ -42,7 +43,6 @@ def pad(x,y):
         x = ['0'] + x
         y = ['0'] + y
     return x,y
-    
     
 def add_bn(a: BinaryNumber, b: BinaryNumber) -> BinaryNumber:
     return BinaryNumber(a.decimal_val + b.decimal_val)
@@ -83,7 +83,10 @@ def subquadratic_multiply(x: BinaryNumber, y: BinaryNumber) -> BinaryNumber:
 
 ## Feel free to add your own tests here.
 def test_multiply():
-    assert binary2int(quadratic_multiply(BinaryNumber(2), BinaryNumber(2))) == 2*2
+    assert quadratic_multiply(BinaryNumber(2), BinaryNumber(2)).decimal_val == 2*2
+    assert quadratic_multiply(BinaryNumber(8), BinaryNumber(9)).decimal_val == 8*9
+    assert subquadratic_multiply(BinaryNumber(2), BinaryNumber(2)).decimal_val == 2*2
+    assert subquadratic_multiply(BinaryNumber(8), BinaryNumber(9)).decimal_val == 8*9
 
 # some timing functions here that will make comparisons easy    
 def time_multiply(x, y, f):
@@ -109,6 +112,61 @@ def print_results(results):
             headers=['n', 'quadratic', 'subquadratic'],
             floatfmt=".3f",
             tablefmt="github"))
-    
-    
+
+import random, statistics, timeit
+
+def rand_binarynumber_with_bits(L: int) -> BinaryNumber:
+    if L <= 1:
+        return BinaryNumber(random.randint(0, 1))
+    x = random.getrandbits(L) | (1 << (L-1))
+    return BinaryNumber(x)
+
+def bench_one(f, L: int, repeats: int = 7) -> float:
+    def run_once():
+        a = rand_binarynumber_with_bits(L)
+        b = rand_binarynumber_with_bits(L)
+        f(a, b)
+    t = timeit.Timer(run_once)
+    return statistics.median(t.repeat(repeat=repeats, number=1))
+
+def compare_multiply_bits():
+    rows = []
+    for L in [2,4,6,8,10,12,14,20,25,30,50,60,70,80,90,100,110,120,130,140,150,160,170,180,190,200]:
+        tq = bench_one(quadratic_multiply, L)
+        tk = bench_one(subquadratic_multiply, L)
+        rows.append((L, tq*1000, tk*1000)) 
+    print_results(rows)
+
+
+
+
+
+|   n |   quadratic |   subquadratic |
+|-----|-------------|----------------|
+|   2 |       0.018 |          0.035 |
+|   4 |       0.079 |          0.156 |
+|   6 |       0.164 |          0.239 |
+|   8 |       0.292 |          0.366 |
+|  10 |       0.545 |          0.878 |
+|  12 |       0.724 |          0.761 |
+|  14 |       0.640 |          0.580 |
+|  20 |       1.025 |          1.143 |
+|  25 |       1.758 |          1.554 |
+|  30 |       2.488 |          2.464 |
+|  50 |       7.125 |          4.613 |
+|  60 |       9.344 |          6.610 |
+|  70 |      13.810 |          8.052 |
+|  80 |      23.539 |         11.906 |
+|  90 |      25.807 |         19.141 |
+| 100 |      30.891 |         14.950 |
+| 110 |      43.372 |         20.303 |
+| 120 |      41.930 |         21.286 |
+| 130 |      47.377 |         26.159 |
+| 140 |      61.378 |         28.863 |
+| 150 |      90.338 |         28.867 |
+| 160 |      90.870 |         38.696 |
+| 170 |      93.032 |         34.520 |
+| 180 |     176.236 |         65.683 |
+| 190 |     186.096 |         79.118 |
+| 200 |     196.309 |         77.219 |
 
