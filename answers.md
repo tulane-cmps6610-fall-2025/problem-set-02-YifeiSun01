@@ -530,7 +530,26 @@ I will choose A. Though A has larger work than C, but the span is smaller. It ca
 
 5. **Black Hats and White Hats**
 
+6a)
+Because the black hats can collude, they can answer each of your questions in a way that stays consistent with **at least two different identity assignments**, so you can never distinguish which assignment is the real world.
 
+**An adversarial construction:**
+
+- Let the real world be \(W\): the set of white hats is \(K\), the set of black hats is \(S\), and \(|S| > n/2\).
+- The black hats pre-agree on the following strategy: whenever any of them is asked a question, they **pretend to be white hats in some “mirror world”** \(W'\), and answer *truthfully with respect to \(W'\)*. The genuine white hats, meanwhile, can only tell the truth with respect to \(W\).
+- Since black hats are the majority, they can, as the interrogation proceeds, **dynamically choose or adjust** a \(W'\) that remains **consistent with all answers so far** (for example, ensuring that in \(W'\) the white hats are in the majority, and that every answer given by a black hat matches \(W'\); the genuine white hats are treated as black in \(W'\), so their past answers are not constrained to be “true” in \(W'\)).
+- Consequently, **the same transcript of questions and answers** up to any point can be explained **both** by the real world \(W\) **and** by the mirror world \(W'\). These are **two different partitions** of who is white and who is black, yet both are consistent with all the answers so far. Therefore, **you cannot uniquely determine** which students are white hats.
+
+6b)
+Rules and cases
+For each pair (𝐴,𝐵):
+
+If at least one says “the other is black,” then the pair contains at least one black hat; discard both 𝐴 and 𝐵.
+
+If both say “the other is white,” then they are the same type (either both white or both black); compress the pair to a single representative and keep it.
+
+Problem size ≤𝑛/2
+After one pass, each pair is either discarded entirely (leaving 0 people) or compressed to one representative (leaving 1 person). Thus at most one person remains per pair, for a total of ≤𝑛/2. This is a textbook example of reducing the problem size by a constant factor.
 
 6c)
-Imagine white is strictly more than black. We first randomly assign them into n/2 pairs of 2. As long as we get at least one answer from this pair of 2 that it is black, we know that there is at least one black in this pair of 2. It is either one black one white or 2 blacks. We can just put them aside into another pool. Then in the original pool, it is either -2 black -0 white or -1 black and -1 white. When we know that initially blacks are less than white, in the end, the remaining samples have to be white, because blacks decreasing faster than or at the same speed as white. After n/2 comparison, we can get at least one white. Then this white will always tell truth. Then we will ask him for all remaining n-1 people, so we can determine all of the n people. We need 1.5n-1 in total. So O(n).
+Imagine white is strictly more than black. We first randomly assign them into n/2 pairs of 2. As long as we get at least one answer from this pair of 2 that it is black, we know that there is at least one black in this pair of 2. It is either one black one white or 2 blacks. We can just put them aside into another pool. Then in the original pool, it is either -2 black -0 white or -1 black and -1 white. When we know that initially blacks are less than white, in the end, the remaining samples have to be white, because blacks decreasing faster than or at the same speed as white. After n/2 comparison, we can get at least one white. Then this white will always tell truth. Then we will ask him for all remaining n-1 people, so we can determine all of the n people. We need 1.5n-1 in total. So O(n). Actually after finding the one white, we do not need to ask all n-1 one. If we find some pairs that all say white in the first round, we just find these pairs to of the same type. For them we only need to ask 1 of them. So 1.5n-1 is the upper limit.
